@@ -4,10 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video for Primary School Class</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .video-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, Class!</h1>
-    <p>Here's a special video just for you!</p>
-    <iframe width="600" height="400" src="https://www.youtube.com/embed/xbJO16TRO_Q?si=gunVoBXjDniQEWjN" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="video-container">
+        <iframe id="myVideo" src="https://www.youtube.com/embed/xbJO16TRO_Q?si=gunVoBXjDniQEWjN?autoplay=1&fs=1" frameborder="0" allow="autoplay; fullscreen"></iframe>
+    </div>
+    <script>
+        window.onload = function() {
+            var iframe = document.getElementById('myVideo');
+            var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen || iframe.msRequestFullscreen;
+            if (requestFullScreen) {
+                requestFullScreen.call(iframe);
+            }
+        };
+    </script>
 </body>
 </html>
+
